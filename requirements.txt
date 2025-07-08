@@ -1,0 +1,27 @@
+# Backend requirements
+fastapi
+uvicorn
+snowflake-connector-python
+openai
+
+# Frontend requirements (for reference, use with npm or yarn)
+# These are not Python packages, but listed here for completeness
+# To install frontend dependencies, run: npm install <package>
+
+# React core
+react
+react-dom
+react-scripts
+typescript
+
+# MUI (Material UI)
+@mui/material
+@mui/icons-material
+@emotion/react
+@emotion/styled
+
+# Additional frontend utilities
+typescript
+@types/react
+@types/react-dom
+@types/node 
