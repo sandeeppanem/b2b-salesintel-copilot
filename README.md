@@ -9,7 +9,7 @@ A conversational AI agent for sales and customer success teams. Ask natural lang
 - Handles 11+ sales/CS workflows (see example prompts below)
 - Contextual memory for follow-up questions (per session)
 - Explains recommendations with business context
-- Uses OpenAI, FastAPI, Snowflake, and React + MUI
+- Uses OpenAI, FastAPI, Snowflake, and Streamlit
 
 ---
 
@@ -28,6 +28,20 @@ A conversational AI agent for sales and customer success teams. Ask natural lang
 
 ---
 
+## Quick Start
+
+### 1. Test Your Setup
+```bash
+python test_setup.py
+```
+
+### 2. Easy Startup
+```bash
+python run_app.py
+```
+
+---
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -36,7 +50,7 @@ git clone <your-repo-url>
 cd <your-repo-directory>
 ```
 
-### 2. Backend Setup (Python)
+### 2. Environment Setup
 
 #### a. Create and activate a virtual environment
 ```bash
@@ -44,9 +58,9 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-#### b. Install backend dependencies
+#### b. Install all dependencies
 ```bash
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 ```
 
 #### c. Set environment variables (Snowflake & OpenAI)
@@ -60,35 +74,34 @@ export SNOWFLAKE_WAREHOUSE=your_warehouse
 export OPENAI_API_KEY=your_openai_api_key
 ```
 
-#### d. Run the backend server
+### 3. Running the Application
+
+#### Option A: Using the startup script (Recommended)
+```bash
+python run_app.py
+```
+
+#### Option B: Manual startup
+
+##### a. Start the backend server (Terminal 1)
 ```bash
 uvicorn backend.main:app --reload
 ```
 
 The backend will be available at [http://localhost:8000](http://localhost:8000)
 
----
-
-### 3. Frontend Setup (React)
-
-#### a. Install frontend dependencies
+##### b. Start the Streamlit frontend (Terminal 2)
 ```bash
-cd frontend
-npm install
+streamlit run frontend/streamlit_app.py
 ```
 
-#### b. Start the frontend app
-```bash
-npm start
-```
-
-The frontend will be available at [http://localhost:3000](http://localhost:3000) (or another port if 3000 is in use).
+The frontend will be available at [http://localhost:8501](http://localhost:8501)
 
 ---
 
 ## Usage
-1. Open the frontend in your browser.
-2. Enter your User ID to start a session.
+1. Open the Streamlit app in your browser (usually http://localhost:8501).
+2. Enter your User ID in the sidebar to start a session.
 3. Ask any of the example questions (or your own) in the chat.
 4. The agent will respond with actionable, explainable insights, and you can ask follow-up questions naturally.
 
@@ -99,11 +112,29 @@ The frontend will be available at [http://localhost:3000](http://localhost:3000)
 backend/              # FastAPI backend
   main.py             # Main backend code
   requirements.txt    # Backend dependencies
-frontend/             # React frontend
-  src/                # Frontend source code
-  package.json        # Frontend dependencies
+frontend/             # Streamlit frontend
+  streamlit_app.py    # Main Streamlit application
+  .streamlit/         # Streamlit configuration
+requirements.txt      # All Python dependencies
+run_app.py           # Startup script
+test_setup.py        # Setup verification script
 README.md             # This file
 ```
+
+---
+
+## Troubleshooting
+
+### Test Your Setup
+Run the test script to verify everything is working:
+```bash
+python test_setup.py
+```
+
+### Common Issues
+- **Backend not running**: Start with `uvicorn backend.main:app --reload`
+- **Missing packages**: Install with `pip install -r requirements.txt`
+- **Environment variables**: Make sure all Snowflake and OpenAI credentials are set
 
 ---
 
@@ -111,6 +142,7 @@ README.md             # This file
 - The agent uses OpenAI's GPT-4 for intent/entity extraction and explanations.
 - No chat history is stored in a database; context is per session/tab.
 - Make sure your Snowflake and OpenAI credentials are correct and have access.
+- All dependencies are now Python packages, making setup simpler.
 
 ---
 

@@ -1,4 +1,7 @@
 fastapi
 uvicorn
 snowflake-connector-python
-openai 
+openai
+streamlit
+requests
+python-dotenv 

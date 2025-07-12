@@ -1,27 +1,14 @@
-# Backend requirements
-fastapi
-uvicorn
-snowflake-connector-python
-openai
+# Backend dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+snowflake-connector-python==3.6.0
+openai==1.3.7
+python-dotenv==1.0.0
 
-# Frontend requirements (for reference, use with npm or yarn)
-# These are not Python packages, but listed here for completeness
-# To install frontend dependencies, run: npm install <package>
+# Frontend dependencies
+streamlit==1.28.1
+requests==2.31.0
 
-# React core
-react
-react-dom
-react-scripts
-typescript
-
-# MUI (Material UI)
-@mui/material
-@mui/icons-material
-@emotion/react
-@emotion/styled
-
-# Additional frontend utilities
-typescript
-@types/react
-@types/react-dom
-@types/node 
+# Additional utilities
+pandas==2.1.3
+numpy==1.25.2 
